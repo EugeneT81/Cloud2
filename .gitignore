@@ -27,5 +27,4 @@ personal.auto.tfvars
 terraform.tfvars
 main.tf
 
-
 *.yaml
