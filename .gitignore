@@ -27,4 +27,5 @@ personal.auto.tfvars
 terraform.tfvars
 main.tf
 
-metadata.yaml
+
+*.yaml
