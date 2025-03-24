@@ -1,0 +1,13 @@
+#cloud-config
+users:
+ - name: ubuntu
+   groups: sudo
+   shell: /bin/bash
+   sudo: ['ALL=(ALL) NOPASSWD:ALL']
+   ssh-authorized-keys:
+      - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINyTaomqFsfcWYtG/xPeylrdqm6gw+UgUMHg+QA03fkH eugene@eugenek8s-client"
+
+runcmd:
+ - 'export PUBLIC_IPV4=$(curl ifconfig.me)'
+ - 'echo instance: $(hostname), IP Address: $PUBLIC_IPV4 > /var/www/html/index.html'
+ - 'echo '<html><img src="http://${yandex_storage_bucket.s3.bucket_domain_name}/picture.png"/></html>' > /var/www/html/index.html'
