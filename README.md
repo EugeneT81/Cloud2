@@ -1,18 +1,13 @@
 1. Конфигурационные файлы Terraform:
 
-[text](private-vm.tf)
+[Network LB](network_loadbalancer.tf)
 
-[text](public-vm.tf)
+[Object Storage](object-storage.tf)
 
-[text](network_loadbalancer.tf)
+[Service Account](sa.tf)
 
-[text](object-storage.tf)
+[Compute instance](compute-instance-group.tf)
 
-[text](sa.tf)
-
-[text](compute-instance-group.tf)
-
-[text](sa.tf)
 
 2. Результат выполнения terraform apply:
 
