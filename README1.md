@@ -1,4 +1,26 @@
+1. Конфигурационные файлы Terraform:
 
+[Network LB](network_loadbalancer.tf)
+
+[Object Storage](object-storage.tf)
+
+[Service Account](sa.tf)
+
+[Compute instance](compute-instance-group.tf)
+
+
+2. resource "yandex_kms_symmetric_key":
+
+resource "yandex_kms_symmetric_key" "bucket" {
+  name              = "bucket-symetric-key"
+  description       = "key for bucket"
+}
+
+![KMS](50.png)
+
+
+
+3. resource "yandex_storage_bucket" с блоком server_side_encryption_configuration:
 
 resource "yandex_storage_bucket" "s3" {
   access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
@@ -20,18 +42,8 @@ resource "yandex_storage_bucket" "s3" {
   }
 }
 
-resource "yandex_storage_object" "picture" {
-  access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
-  secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
-  bucket = yandex_storage_bucket.s3.bucket
-  key    = "picture.png"
-  source = "./images/picture.png"
-  acl = "public-read"
-  depends_on = [yandex_storage_bucket.s3]
-}
+4. Object Storage Bucket:
 
-resource "yandex_kms_symmetric_key" "bucket" {
-  name              = "bucket-symetric-key"
-  description       = "key for bucket"
-}
+![bucket](51.png)
 
+![alt text](52.png)
