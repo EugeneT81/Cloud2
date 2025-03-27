@@ -1,6 +1,5 @@
 1. Конфигурационные файлы Terraform:
 
-[Network LB](network_loadbalancer.tf)
 
 [Object Storage](object-storage.tf)
 
